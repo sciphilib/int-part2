@@ -20,14 +20,23 @@ namespace Graphics2
 
             // cube
             var cube1 = cubeBuilder.BuildCube(2);
+            var cube2 = cubeBuilder.BuildCube(3);
+            var cube3 = cubeBuilder.BuildCube(4);
 
             // outlines
-            var cubeOutline1 = outlineBuilder.BuildCubeOutline(cube1);
+            //var cubeOutline1 = outlineBuilder.BuildCubeOutline(cube1);
             var mcubeOutline1 = morfedOutlineBuilder.BuildCubeOutline(cube1);
-            mcubeOutline1.GetComponent<Transform>().Translate(new OpenTK.Mathematics.Vector3(1.25f, 0.0f, 0.0f));
+            
+            var mcubeOutline2 = morfedOutlineBuilder.BuildCubeOutline(cube2);
+            mcubeOutline2.GetComponent<Transform>().Translate(new OpenTK.Mathematics.Vector3(2.25f, 0.0f, 0.0f));
+            
+            var mcubeOutline3 = morfedOutlineBuilder.BuildCubeOutline(cube3);
+            mcubeOutline3.GetComponent<Transform>().Translate(new OpenTK.Mathematics.Vector3(4.5f, 0.0f, 0.0f));
 
-            AddObject(cubeOutline1);
+
             AddObject(mcubeOutline1);
+            AddObject(mcubeOutline2);
+            AddObject(mcubeOutline3);
         }
     }
 }

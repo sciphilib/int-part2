@@ -14,22 +14,24 @@ namespace Graphics2
         {
             int currSide = 0;
 
-            const float cubeLength = 1.0f;
+            const float cubeLength = 2.0f;
             float parts = cubeLength / cube.Splitting;
 
             float coordX;
             float coordY;
             float coordZ;
 
+            float leftCoordValue = - (cubeLength / 2);
+
             // Sides: 0, 2 (X, Y)
-            coordX = 0.0f;
-            coordY = 0.0f;
-            coordZ = 0.0f;
+            coordX = leftCoordValue;
+            coordY = leftCoordValue;
+            coordZ = leftCoordValue;
             for (int sides = 0; sides < 2; sides++)
             {
                 for (int i = 0; i < cube.VerticesLines; i++)
                 {
-                    coordX = 0.0f;
+                    coordX = leftCoordValue;
                     for (int j = 0; j < cube.VerticesLines; j++)
                     {
                         cube.GetSide(currSide).vertices[i, j] = new Vector3(coordX, coordY, coordZ + (cubeLength * sides));
@@ -37,19 +39,19 @@ namespace Graphics2
                     }
                     coordY += parts;
                 }
-                coordY = 0.0f;
+                coordY = leftCoordValue;
                 currSide++;
             }
 
             // Sides: 1, 3 (Z, Y)
-            coordX = 0.0f;
-            coordY = 0.0f;
-            coordZ = 0.0f;
+            coordX = leftCoordValue;
+            coordY = leftCoordValue;
+            coordZ = leftCoordValue;
             for (int sides = 0; sides < 2; sides++)
             {
                 for (int i = 0; i < cube.VerticesLines; i++)
                 {
-                    coordZ = 0.0f;
+                    coordZ = leftCoordValue;
                     for (int j = 0; j < cube.VerticesLines; j++)
                     {
                         cube.GetSide(currSide).vertices[i, j] = new Vector3(coordX + (cubeLength * sides), coordY, coordZ);
@@ -57,19 +59,19 @@ namespace Graphics2
                     }
                     coordY += parts;
                 }
-                coordY = 0.0f;
+                coordY = leftCoordValue;
                 currSide++;
             }
 
-            // Sides: 4, 5 (X, Z)
-            coordX = 0.0f;
-            coordY = 0.0f;
-            coordZ = 0.0f;
+            //Sides: 4, 5(X, Z)
+            coordX = leftCoordValue;
+            coordY = leftCoordValue;
+            coordZ = leftCoordValue;
             for (int sides = 0; sides < 2; sides++)
             {
                 for (int i = 0; i < cube.VerticesLines; i++)
                 {
-                    coordX = 0.0f;
+                    coordX = leftCoordValue;
                     for (int j = 0; j < cube.VerticesLines; j++)
                     {
                         cube.GetSide(currSide).vertices[i, j] = new Vector3(coordX, coordY + (cubeLength * sides), coordZ);
@@ -77,7 +79,7 @@ namespace Graphics2
                     }
                     coordZ += parts;
                 }
-                coordZ = 0.0f;
+                coordZ = leftCoordValue;
                 currSide++;
             }
         }
